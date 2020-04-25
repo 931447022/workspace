@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Using Ajax for validation</title>
+<script src="jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+  
+  function validate() {
+
+    var username = $("#username").val();
+    var url = "validation.do?username=" + username;
+
+    $.get(url,function(data){
+    	var message=$(data).find("response").children("message").text();
+        $("#results").html(message);
+   });
+    
+    
+  }
+
+ </script>
+</head>
+
+<body>   
+<p align="center">用户注册--Ajax数据验证示例</p>
+  <form method="post"> 
+  <table align="center">
+	  <tr>
+		 	<td>用户名：</td>
+		 	<td><input type="text" size="15" id="username" name="username"/> 
+		       <input type="button" value="检测" onclick="validate();">
+		    </td>
+		   	<td> <div id="results" ></div>
+		   	</td>
+	  </tr>
+	  <tr>
+			<td>密码：</td>
+			<td><input type="password" size="15" name="password"/> 
+			</td>
+ 	  </tr>
+  	  <tr>
+			<td>邮箱：</td>
+			<td><input type="text" size="15" name="email"/> 
+			</td>
+ 	</tr>
+	 <tr>
+ 			<td> </td>
+ 			<td><input type="submit" value="注册" onclick="validate();"></td>
+ 	</tr>
+</table>
+  </form>  
+</body>
+</html>

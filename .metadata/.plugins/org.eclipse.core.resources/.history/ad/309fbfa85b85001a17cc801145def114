@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery/jquery-3.3.1.min.js"></script>
+<script>
+$(function(){
+	init();
+});
+function init(){
+	$.post("staff/list.do",function(data){
+		//alert(data.departList[0]);
+		var sel=$('#form1 [name="depart"]')[0];
+		
+		//下拉列表框信息
+		for(var i=0;i<data.departList.length;i++){
+			var option=new Option;
+			option.value=data.departList[i];
+			option.text=data.departList[i];
+			sel.options[sel.options.length]=option;
+		}
+		showTableAndPage(data);
+		
+		//页码信息
+	
+	});
+}
+function showTableAndPage(data){
+	$('#span1').text(data.page.currentPage+'/'+data.page.totalpage);
+	$('#page').val(data.page.currentPage);
+	$('#totalpage').val(data.page.totalpage);
+	
+	var str='';
+	for(var i=0;i<data.staffList.length;i++){
+		var staff=data.staffList[i];
+		str+='<tr><td>'+staff.depart+'</td>';
+		str+='<td>'+staff.name+'</td>';
+		str+='<td>'+staff.code+'</td>';
+		str+='<td>'+staff.genstr+'</td>';
+		str+='<td>'+staff.age+'</td>';
+		str+='<td>'+staff.enrolldateStr+'</td>';
+		str+='<td><button>修改</button><button>删除</button></td></tr>';
+	}
+	//alert(str);
+	$('#tbody').html(str);
+}
+function search(page){
+	var depart=$('#form1 [name="depart"]').val();
+	var keyword=$('#form1 [name="keyword"]').val();
+	var pagesize=$('#form1 [name="pagesize"]').val();
+	//alert(depart+' '+keyword+' '+pagesiaze+' '+page);//测试代码有没有出错
+	$.post('staff/list.do',{depart:depart,keyword:keyword,pagesize:pagesize,page:page},function(data){
+		showTableAndPage(data);
+	});
+	
+}
+function prepage(){
+	var page=parseInt($('#page').val());
+	if(page==1)
+		return;
+	page--;
+	search(page);
+}
+function nextpage(){
+	var page=parseInt($('#page').val());
+	var totalpage=parseInt($('#totalpage').val());
+	if(page==totalpage)
+		return;
+	page++;
+	search(page);
+}
+function lastpage(){
+	var totalpage=parseInt($('#totalpage').val());
+	search(totalpage);
+}
+</script>
+</head>
+<body align="center">
+<h1>员工信息显示</h1>
+<form id="form1" action="" method="post">
+	部门：
+	<select name="depart" onchange="search(1)">
+		<option value="">--选择部门--</option>
+		
+	</select>
+	关键字：<input type="text" name="keyword" >
+	每页
+	<select name="pagesize" onchange="search(1)">
+		<option value=5 >5</option>
+		<option value=10 selected>10</option>
+		<option value=15>15</option>
+		<option value=20>20</option>
+	</select>
+	条
+	<input type="hidden" id="page" name="page">
+	<input type="hidden" id="totalpage" name="totalpage">
+	<input type="button"  value="查询" onclick="search(1)">
+	<button type="button" onclick="add()">添加员工</button>
+</form>
+<p>
+<table width="90%" border="1" align="center">
+	<tr>
+		<th>部门</th>
+		<th>姓名</th>
+		<th>工号</th>
+		<th>性别</th>
+		<th>年龄</th>
+		<th>入职日期</th>
+		<th>操作</th>
+	</tr>
+	<tbody id="tbody"></tbody>
+</table>
+<div align="right">
+	<button onclick="search(1)">首页</button>
+	<button onclick="prepage()">上一页</button>
+	<span id="span1">0/0</span>
+	<button onclick="nextpage()">下一页</button>
+	<button onclick="lastpage()">尾页</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+#Tomcat publish data
+#Thu Apr 23 20:53:32 CST 2020
+org.eclipse.jst.jee.server\:HelloWeb6=E\:\\webroot\\apache-tomcat-7.0.82\\wtpwebapps\\HelloWeb6
+org.eclipse.jst.jee.server\:HelloAjax=E\:\\webroot\\apache-tomcat-7.0.82\\wtpwebapps\\HelloAjax
+org.eclipse.jst.jee.server\:HelloWeb5=E\:\\webroot\\apache-tomcat-7.0.82\\wtpwebapps\\HelloWeb5
+org.eclipse.jst.jee.server\:HelloWeb4=E\:\\webroot\\apache-tomcat-7.0.82\\wtpwebapps\\HelloWeb4
+org.eclipse.jst.jee.server\:ZUOYE=E\:\\webroot\\apache-tomcat-7.0.82\\wtpwebapps\\ZUOYE
+org.eclipse.jst.jee.server\:HelloWeb3=E\:\\webroot\\apache-tomcat-7.0.82\\wtpwebapps\\HelloWeb3
+org.eclipse.jst.jee.server\:HelloWeb2=E\:\\webroot\\apache-tomcat-7.0.82\\wtpwebapps\\HelloWeb2
+org.eclipse.jst.jee.server\:HelloWeb=E\:\\webroot\\apache-tomcat-7.0.82\\wtpwebapps\\HelloWeb

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+  
+  function pd() {
+
+    var year = $("#year").val();
+//     var url = "yearjson?year=" + year;
+//     $.get(url,function(data){
+//         $("#result").html(data.result);       
+//         $("#error").html(data.error);
+//    });
+    $.post("yearjson",{year:year},function(data){
+        $("#result").html(data.result);       
+        $("#error").html(data.error);
+   });
+    
+    $.ajax({type:"post",url:"yearjson",data:{year:year},success:function(data){
+        $("#result").html(data.result);       
+        $("#error").html(data.error);
+	   },
+	   error:function(){
+		   $("#error").html("系统出错！");
+	   }});
+    
+  }
+
+ </script>
+</head>
+<body>
+<p>
+请输入年份:<input type="text" id="year" >
+<input type="button" onclick="pd()" value="闰年判断">
+<p id="result">
+<p style="color:red" id="error">
+</body>
+</html>

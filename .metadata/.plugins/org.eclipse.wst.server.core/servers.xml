@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v7.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v7.0 Server at localhost" name="Tomcat v7.0 Server at localhost" runtime-id="Apache Tomcat v7.0" server-type="org.eclipse.jst.server.tomcat.70" server-type-id="org.eclipse.jst.server.tomcat.70" start-timeout="90" stop-timeout="15" testEnvironment="false" timestamp="27">
+    <list key="modules" value0="HelloWeb::org.eclipse.jst.jee.server:HelloWeb::jst.web::3.0" value1="HelloWeb2::org.eclipse.jst.jee.server:HelloWeb2::jst.web::3.0" value2="HelloWeb3::org.eclipse.jst.jee.server:HelloWeb3::jst.web::3.0" value3="HelloWeb4::org.eclipse.jst.jee.server:HelloWeb4::jst.web::3.0" value4="HelloWeb5::org.eclipse.jst.jee.server:HelloWeb5::jst.web::3.0" value5="ZUOYE::org.eclipse.jst.jee.server:ZUOYE::jst.web::3.0" value6="HelloAjax::org.eclipse.jst.jee.server:HelloAjax::jst.web::3.0" value7="HelloWeb6::org.eclipse.jst.jee.server:HelloWeb6::jst.web::3.0"/>
+  </server>
+</servers>

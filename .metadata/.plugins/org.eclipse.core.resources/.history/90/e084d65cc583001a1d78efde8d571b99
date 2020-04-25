@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body align="center">
+<h1>员工信息显示</h1>
+<form id="form1" action="" method="post">
+	部门：
+	<select name="depart" onchange="search()">
+		<option value="">--选择部门--</option>
+		
+	</select>
+	关键字：<input type="text" name="keyword" >
+	每页
+	<select name="pagesize" onchange="search()">
+		<option value=5 >5</option>
+		<option value=10 >10</option>
+		<option value=15 >15</option>
+		<option value=20 >20</option>
+	</select>
+	条
+	<input type="hidden" id="page" name="page" >
+	<input type="hidden" id="totalpage" name="totalpage" >
+	<input type="submit" value="查询">
+	<button type="button" onclick="add()">添加员工</button>
+</form>
+<p>
+<table width="90%" border="1" align="center">
+	<tr>
+		<th>部门</th>
+		<th>姓名</th>
+		<th>工号</th>
+		<th>性别</th>
+		<th>年龄</th>
+		<th>入职日期</th>
+		<th>操作</th>
+	</tr>
+	
+	
+	
+</table>
+<div align="right">
+	<button onclick="pagego(1)">首页</button>
+	<button onclick="prepage()">上一页</button>
+	<button onclick="nextpage()">下一页</button>
+	<button onclick="pagego(<%=model.getPage().getTotalpage()%>)">尾页</button>
+</div>
+</body>
+</html>

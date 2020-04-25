@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.web.hello.model.tables.DepartDao.java&apos; to &apos;CardDao.java&apos;&#x0D;&#x0A;- Original project: &apos;ZUOYE&apos;&#x0D;&#x0A;- Original element: &apos;com.web.hello.model.tables.DepartDao.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.web.hello.model.tables.CardDao.java&apos;" description="Rename compilation unit &apos;DepartDao.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.web.hello.model.tables{DepartDao.java" name="CardDao.java" references="false" stamp="1586932406902" version="1.0"/>
+</session>
